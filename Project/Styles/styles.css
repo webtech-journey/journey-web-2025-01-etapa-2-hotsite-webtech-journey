@@ -75,7 +75,7 @@ header nav{
 main{
     margin-top: -0.2rem;
     .banner{
-        background-image: url('assets/banner.png');
+        background-image: url("/assets/img/banner.png");
         background-size: cover;
         background-position: center;
         color: white;
@@ -123,16 +123,39 @@ main{
         }
 
         .banner__description{
+            position: relative; /* importante para o ::after */
+            display: inline-block;
+
             p{
                 max-width: 50%;
                 font-size: 1.5rem;
                 font-weight: 300;
+                transition: color 0.4s ease-in-out; /* cor do texto suave */
+
 
                 @media (max-width: 768px) {
                     font-size: 1.2rem;
                     max-width: 10%; /* força a linha a "quebrar" com menos espaço */
                 }
             }
+
+             &::after {
+                background-color: var(--AmareloEscuro);
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.4s ease-in-out;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+            }
+
+            &:hover p {
+                color: var(--AmareloEscuro); /* cor muda suavemente */
+            }
+
+
+            
         }
 
         .banner__link{
@@ -152,6 +175,7 @@ main{
             &:hover{
                 background-color: var(--AmareloEscuro);
                 color: var(--RoxoEscuro);
+                transition: background-color 1s ease-in-out;
             }
         }
 
