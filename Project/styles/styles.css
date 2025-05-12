@@ -168,14 +168,26 @@ main{
             border-radius: 30px;
             color: white;
             text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 500;
+            font-size: 1.5rem;
+            font-weight: 400;
             cursor: pointer;
 
             &:hover{
                 background-color: var(--AmareloEscuro);
                 color: var(--RoxoEscuro);
                 transition: background-color 1s ease-in-out;
+            }
+
+            div{
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                padding: 0 3rem; 
+
+                img{
+                    height: 3rem;
+                }
             }
         }
 
