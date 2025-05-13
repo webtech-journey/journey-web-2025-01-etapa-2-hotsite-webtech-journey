@@ -24,6 +24,7 @@
     "s": "live-server index.html"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "scss": "^0.2.4"
   }
 }
