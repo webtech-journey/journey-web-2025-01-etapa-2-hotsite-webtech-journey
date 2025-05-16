@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+}
+
+nav{
+    height: 70px;
+    width: 100%;
+    background-color: #332264;
+    margin: 0;
+    margin-bottom: 50px;
+}
+
+main{
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+}
+
+.section-title{
+    font-family: "Inter", sans-serif; 
+    border-radius: 10px;
+    height: 60px;
+    color: #FFFFFF;
+    font-size:1.5rem;
+    display: grid;
+    grid-template-rows: 60px;
+ 
+    align-items: center;
+    margin-bottom: 50px;
+   
+
+    h2{
+        display: inline;
+        margin: 0;
+        margin-left: 5%;
+
+        font-weight:400;
+    }
+}
+
+.column-yellow{
+    grid-template-columns:35% auto;
+     
+}
+
+.column-purple{
+    grid-template-columns:65% auto;
+}
+.triangle-left{
+     width: 0px;
+   height: 0px;
+   border-style: solid;
+   border-width: 0 0 60px 60px;
+
+   transform: rotate(0deg);
+}
+.triangle-left.yellow{
+    border-color: transparent transparent #FDBC2F transparent;
+}
+.triangle-left.purple{
+    border-color: transparent transparent #332264 transparent;
+}
+
+
+.triangle-right{
+  width: 0px;
+   height: 0px;
+   border-style: solid;
+   border-width: 0 60px 60px 0;
+   border-color: transparent #FDBC2F transparent transparent;
+   transform: rotate(0deg)
+}
+.halfbar{
+    display: flex;
+    align-self: flex-end;
+    width: auto;
+    height: 100%;
+    margin: 0;
+   
+   
+}
+.rectangle{
+    width: 100%;
+    border-radius: 0px 9px 9px 0px;
+   
+}
+
+.purple-background{
+    background-color: #332264;
+}
+.yellow-background{
+    background-color: #FDBC2F;
+}
+
