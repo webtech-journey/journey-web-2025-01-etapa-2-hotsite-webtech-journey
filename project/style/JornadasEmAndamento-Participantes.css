@@ -1,0 +1,42 @@
+/* NAV BAR ----------------------------------------------*/
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav{
+    background-color: #332264;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav img{
+    margin: auto 20px;
+}
+
+nav section{
+    display: flex;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+nav a h3{
+    text-decoration: none;
+    color: #fff;
+    margin: 0 20px;
+}
+
+nav i{
+    color: #fff;
+    font-size: 70px;
+    margin: auto 20px;
+}
+
+/* ------------------------------------------------------*/
