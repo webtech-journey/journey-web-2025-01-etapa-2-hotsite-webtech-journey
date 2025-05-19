@@ -9,6 +9,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.yellow_text{
+    color: var(--AmareloEscuro);
+}
+
 header nav{
     display: flex;
     justify-content: space-between;
@@ -21,7 +25,7 @@ header nav{
 
     .header__logo img{
         padding: 1rem;
-        height: 7rem;
+        height: 5rem;
         cursor: pointer;
     }
 
@@ -129,7 +133,7 @@ main{
 
             p{
                 max-width: 50%;
-                font-size: 1.5rem;
+                font-size: 1.6rem;
                 font-weight: 300;
                 transition: color 0.4s ease-in-out; /* cor do texto suave */
 
@@ -195,11 +199,56 @@ main{
     }
 
 
-    .conteudo{
-        background-color: white;
+    .wireframe1{
+        background-image: url("/assets/img/Wireframe1.png");
+        display: flex;
+        flex-direction: row;
         background-size: cover;
         background-position: center;
         width: 100%;
         height: 100vh;
+
+        .yellow_text{
+            font-weight: 600;
+        }
+
+        .wireframe1__content{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            width: 50%;
+            padding: 4rem 0 0 5rem;
+            gap: 1rem;
+
+            h2{
+                font-size: 5rem;
+                font-weight: 700;
+                line-height: 6rem;
+            }
+
+            p{
+                max-width: 80%;
+                font-size: 1.2rem;
+
+            }
+        }
+
+        .wireframe1__image{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            width: 50%;
+            padding: 5rem 0 0 0;
+            gap: 1rem;
+
+            .wireframe1__image__black{
+                background-color: var(--PretoEscuro);
+                border-radius: 30px;
+                width: 70%;
+                height: 70%;
+            }
+        }
     }
 }
