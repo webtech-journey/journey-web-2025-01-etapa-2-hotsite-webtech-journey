@@ -40,3 +40,39 @@ nav i{
 }
 
 /* ------------------------------------------------------*/
+
+/* MAIN -------------------------------------------------*/
+#img-intro {
+    background-color: #332264;
+    display: flex;
+    margin: 30px 50px;
+    color: #fff;
+    border-radius: 10px;
+    height: 400px;
+    overflow: hidden; /* Esconde o excesso da imagem */
+}
+
+#img-intro h3,
+#img-intro h1 {
+    margin: 0;
+}
+
+#img-intro h1{
+    font-size: xx-large;
+}
+
+#img-intro article {
+    padding: 20px;
+    flex: 1;
+}
+
+#img-intro img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+    /* flex-shrink: 0; */
+}
+
+/* ------------------------------------------------------*/
+
