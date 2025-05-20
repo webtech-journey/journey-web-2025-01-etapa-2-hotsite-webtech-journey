@@ -1,8 +1,28 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
+
+body p{
+    font-size: large;
+}
+body h1{
+    font-size: xxx-large;
+}
+body h2{
+    font-size: xx-large;
+    font-weight: normal;
+}
+body h3{
+    font-size: x-large;
+}
+body h4{
+    font-size: large;
+    font-weight: normal;
+
+}
+
 /* BANNER -------------------------------------------------*/
-#img-intro {
+#banner {
     background-color: #332264;
     display: flex;
     margin: 30px 50px;
@@ -13,20 +33,11 @@ body{
     outline: 3px solid #F5C01A;
 }
 
-#img-intro h3,
-#img-intro h1 {
+#banner h1 {
     margin: 0;
 }
 
-#img-intro h1{
-    font-size: xxx-large;
-}
-
-#img-intro p {
-    font-size: large;
-}
-
-#img-intro article {
+#banner article {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,7 +47,7 @@ body{
 }
 
 
-#img-intro img {
+#banner img {
     height: 100%;
     width: auto;
     object-fit: cover;
@@ -46,20 +57,20 @@ body{
 
 /* ------------------------------------------------------*/
 
-/* Pessoas------------------------------------------------------*/
+/* Select optiom ------------------------------------------------------*/
 #select-opc{
     display: flex;
     justify-content: center;
     gap: 50px;
 }
 
-#select-opc h1 {
+#select-opc h3 {
     position: relative; /* Necessário para posicionar o ::after corretamente */
     display: inline-block;
     color: #332264;
 }
 
-#select-opc h1::after {
+#select-opc h3::after {
     content: "";
     position: absolute;
     left: 0;
@@ -72,7 +83,70 @@ body{
     transition: transform 0.3s ease-in-out;
 }
 
-#select-opc h1:hover::after {
+#select-opc h3:hover::after {
     transform: scaleX(1); /* Agora sim: altera o ::after no hover do h1 */
 }
+/* ----------------------------------------------------------------*/
 
+/* Pessoas ------------------------------------------------------*/
+
+#pessoas{
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#pHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+#filtros{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filtro{
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.filtro input{
+    width: 310px;
+    border: none;
+    outline: 3px solid #332264;
+    border-radius: 10px;
+}
+
+.filtro select{
+    width: 150px;
+    border: none;
+    outline: 3px solid #332264;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Usuarios -------------------------------------------------------------*/
+.usuario{
+    display: flex;
+    /* outline: 3px solid #332264; */
+    border-radius: 10px;
+    padding: 10px;
+    /* padding-right: 200px; */
+    align-items: center;
+    justify-content: space-between;
+}
+.face{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.face img{
+    width: 40px;
+    height: auto;
+}
+/* -----------------------------------------------------------------------*/
