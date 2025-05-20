@@ -1,15 +1,16 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
 }
-/* MAIN -------------------------------------------------*/
+/* BANNER -------------------------------------------------*/
 #img-intro {
     background-color: #332264;
     display: flex;
     margin: 30px 50px;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     height: 400px;
-    overflow: hidden; /* Esconde o excesso da imagem */
+    overflow: hidden;
+    outline: 3px solid #F5C01A;
 }
 
 #img-intro h3,
@@ -18,14 +19,22 @@ body{
 }
 
 #img-intro h1{
-    font-size: xx-large;
+    font-size: xxx-large;
+}
+
+#img-intro p {
+    font-size: large;
 }
 
 #img-intro article {
-    width: 70px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
     flex: 1;
+    width: auto;         /* Corrige o width: 70px, que está muito pequeno */
 }
+
 
 #img-intro img {
     height: 100%;
@@ -36,4 +45,34 @@ body{
 }
 
 /* ------------------------------------------------------*/
+
+/* Pessoas------------------------------------------------------*/
+#select-opc{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#select-opc h1 {
+    position: relative; /* Necessário para posicionar o ::after corretamente */
+    display: inline-block;
+    color: #332264;
+}
+
+#select-opc h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background-color: #332264;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#select-opc h1:hover::after {
+    transform: scaleX(1); /* Agora sim: altera o ::after no hover do h1 */
+}
 
