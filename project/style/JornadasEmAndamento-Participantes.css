@@ -10,7 +10,6 @@ body h1{
 }
 body h2{
     font-size: xx-large;
-    font-weight: normal;
 }
 body h3{
     font-size: x-large;
@@ -18,7 +17,6 @@ body h3{
 body h4{
     font-size: large;
     font-weight: normal;
-
 }
 
 /* BANNER -------------------------------------------------*/
@@ -37,13 +35,17 @@ body h4{
     margin: 0;
 }
 
+#banner h3 {
+    font-weight: normal;
+}
+
 #banner article {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 50px;
     flex: 1;
-    width: auto;         /* Corrige o width: 70px, que está muito pequeno */
+    width: auto;
 }
 
 
@@ -65,7 +67,7 @@ body h4{
 }
 
 #select-opc h3 {
-    position: relative; /* Necessário para posicionar o ::after corretamente */
+    position: relative;
     display: inline-block;
     color: #332264;
 }
@@ -84,7 +86,7 @@ body h4{
 }
 
 #select-opc h3:hover::after {
-    transform: scaleX(1); /* Agora sim: altera o ::after no hover do h1 */
+    transform: scaleX(1);
 }
 /* ----------------------------------------------------------------*/
 
@@ -97,7 +99,7 @@ body h4{
     gap: 50px;
 }
 
-#pHeader{
+#usuariosHeader{
     display: flex;
     justify-content: space-between;
 }
@@ -119,6 +121,7 @@ body h4{
     border: none;
     outline: 3px solid #332264;
     border-radius: 10px;
+    padding: 0 1%;
 }
 
 .filtro select{
@@ -130,23 +133,65 @@ body h4{
 }
 
 /* Usuarios -------------------------------------------------------------*/
+
 .usuario{
     display: flex;
-    /* outline: 3px solid #332264; */
     border-radius: 10px;
     padding: 10px;
-    /* padding-right: 200px; */
     align-items: center;
     justify-content: space-between;
 }
+
+#usuarioTitulos h3,
+.usuario > * {
+    flex: 1;
+    text-align: center;
+}
+
+#usuarioTitulos {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+
+
 .face{
     display: flex;
     align-items: center;
     gap: 10px;
+    justify-content: center;
 }
 
 .face img{
     width: 40px;
     height: auto;
-}
+} 
 /* -----------------------------------------------------------------------*/
+
+/* PARCEIROS -----------------------------------------------------------------------*/
+#parceiros {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    gap: 10px;
+    margin: 0 10%;
+}
+
+#parceiros img {
+    width: 150px;
+    outline: 3px solid #332264;
+    
+    border-radius: 100px;
+}
+
+/* ---------------------------------------------------------------------------------*/
