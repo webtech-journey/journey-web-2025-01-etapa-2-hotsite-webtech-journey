@@ -19,6 +19,10 @@ body h4{
     font-weight: normal;
 }
 
+main{
+    margin-bottom: 100px;
+}
+
 /* BANNER -------------------------------------------------*/
 #banner {
     background-color: #332264;
@@ -179,19 +183,32 @@ body h4{
 /* -----------------------------------------------------------------------*/
 
 /* PARCEIROS -----------------------------------------------------------------------*/
-#parceiros {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    justify-items: center;
-    gap: 10px;
-    margin: 0 10%;
+#paceirosHeader h3{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
 }
 
+#parceiros {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    gap: 100px;
+}
+
+
 #parceiros img {
-    width: 150px;
-    outline: 3px solid #332264;
-    
+    width: 100px;
+    outline: 3px solid #332264;   
     border-radius: 100px;
+}
+
+.parceiro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 /* ---------------------------------------------------------------------------------*/
