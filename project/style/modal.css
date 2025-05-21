@@ -36,7 +36,20 @@ body h4 {
     border-radius: 20px;
     overflow: hidden;
     outline: 3px solid #F5C01A;
+    position: absolute;
 }
+
+.ph-x{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: xx-large;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
 
 #modal img {
     width: 100%;
@@ -66,7 +79,8 @@ body h4 {
     padding: 50px;
 
 }
-#buttons{
+
+#buttons {
     display: flex;
     gap: 20px;
 }
@@ -75,13 +89,23 @@ body h4 {
 #introducao {
     width: 70%;
 }
-#inscrevase{
+
+#inscrevase {
     background-color: #F5C01A;
+    color: #332264;
     border: none;
     border-radius: 100px;
     height: max-content;
     padding: 0 20px;
+    transition: .2s;
 }
+
+#inscrevase:hover {
+    background-color: #332264;
+    box-shadow: inset 0 0 0 2px #F5C01A;
+    color: #F5C01A;
+}
+
 #conteudo {
     display: flex;
     align-items: center;
@@ -125,11 +149,13 @@ body h4 {
     flex-direction: column;
     gap: 20px;
 }
-#palavras-chave{
+
+#palavras-chave {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 #palavras-chave div {
     display: flex;
     flex-wrap: wrap;
@@ -145,26 +171,28 @@ body h4 {
     margin: 0;
 }
 
-#pre-requisitos{
+#pre-requisitos {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-#pre-requisitos i{
+#pre-requisitos i {
     font-size: xxx-large;
 }
 
-.ph-file-html{
+.ph-file-html {
     color: rgb(255, 102, 0);
 }
-.ph-file-css{
+
+.ph-file-css {
     color: rgb(0, 119, 255);
 }
-.ph-file-js{
+
+.ph-file-js {
     color: yellow;
 }
 
-.ph-figma-logo{
+.ph-figma-logo {
     color: black;
 }

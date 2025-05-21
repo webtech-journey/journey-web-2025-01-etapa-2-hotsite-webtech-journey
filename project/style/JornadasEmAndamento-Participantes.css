@@ -1,25 +1,29 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-body p{
+body p {
     font-size: large;
 }
-body h1{
+
+body h1 {
     font-size: xxx-large;
 }
-body h2{
+
+body h2 {
     font-size: xx-large;
 }
-body h3{
+
+body h3 {
     font-size: x-large;
 }
-body h4{
+
+body h4 {
     font-size: large;
     font-weight: normal;
 }
 
-main{
+main {
     margin-bottom: 100px;
 }
 
@@ -64,7 +68,7 @@ main{
 /* ------------------------------------------------------*/
 
 /* Select optiom ------------------------------------------------------*/
-#select-opc{
+#select-opc {
     display: flex;
     justify-content: center;
     gap: 50px;
@@ -92,35 +96,36 @@ main{
 #select-opc h3:hover::after {
     transform: scaleX(1);
 }
+
 /* ----------------------------------------------------------------*/
 
 /* Pessoas ------------------------------------------------------*/
 
-#pessoas{
+#pessoas {
     margin: 0 50px;
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
-#usuariosHeader{
+#usuariosHeader {
     display: flex;
     justify-content: space-between;
 }
 
-#filtros{
+#filtros {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.filtro{
+.filtro {
     display: flex;
     justify-content: end;
     gap: 10px;
 }
 
-.filtro input{
+.filtro input {
     width: 310px;
     border: none;
     outline: 3px solid #332264;
@@ -128,7 +133,7 @@ main{
     padding: 0 1%;
 }
 
-.filtro select{
+.filtro select {
     width: 150px;
     border: none;
     outline: 3px solid #332264;
@@ -138,7 +143,7 @@ main{
 
 /* Usuarios -------------------------------------------------------------*/
 
-.usuario{
+.usuario {
     display: flex;
     border-radius: 10px;
     padding: 10px;
@@ -147,7 +152,7 @@ main{
 }
 
 #usuarioTitulos h3,
-.usuario > * {
+.usuario>* {
     flex: 1;
     text-align: center;
 }
@@ -158,7 +163,7 @@ main{
     padding: 10px;
     align-items: center;
     justify-content: space-between;
-    }
+}
 
 .linha {
     display: flex;
@@ -169,21 +174,22 @@ main{
 
 
 
-.face{
+.face {
     display: flex;
     align-items: center;
     gap: 10px;
     justify-content: center;
 }
 
-.face img{
+.face img {
     width: 40px;
     height: auto;
-} 
+}
+
 /* -----------------------------------------------------------------------*/
 
 /* PARCEIROS -----------------------------------------------------------------------*/
-#paceirosHeader h3{
+#paceirosHeader h3 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -199,11 +205,11 @@ main{
 
 #parceiros img {
     width: 100px;
-    outline: 3px solid #332264;   
+    outline: 3px solid #332264;
     border-radius: 100px;
 }
 
-.parceiro{
+.parceiro {
     display: flex;
     flex-direction: column;
     justify-content: center;
