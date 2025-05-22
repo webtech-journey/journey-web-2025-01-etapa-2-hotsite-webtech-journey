@@ -1,0 +1,44 @@
+@import url('./variaveis.css');
+
+body{
+    margin: 0;
+}
+
+
+
+main{
+    margin-top: 3rem;
+    margin-left: 7.5%;
+    margin-right: 7.5%;
+}
+.titulo-personalizado {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  margin-top: 3rem;
+  font-size: 20px;
+  color: white;
+  border-radius: 0.5rem;
+  width:100%; /* ou defina largura fixa se quiser */
+}
+
+.titulo-personalizado.grad1{
+    background: var(--gradiente1);
+}
+    
+.titulo-personalizado.grad2{
+     background: var(--gradiente2);
+  
+   
+}
+.titulo-personalizado.grad3{
+    background: var(--gradiente3);
+}
+
+.line-break{
+   height: 5px;
+   color: black;
+   border-radius: 10px;
+   background-color: black;
+}
+
