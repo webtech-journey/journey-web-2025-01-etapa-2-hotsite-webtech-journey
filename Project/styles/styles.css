@@ -87,6 +87,9 @@ header nav{
     align-items: center;
  
 }
+.section-title{
+    margin-left: 30px;
+}
 
 .card{
     background-color: var(--RoxoAzulado); /* roxo */
@@ -137,6 +140,10 @@ header nav{
 
 .hover:hover{
     transform: scale(1.0625);
+    cursor: pointer;
+}
+.hover2:hover{
+    transform: scale(1.01);
     cursor: pointer;
 }
 
