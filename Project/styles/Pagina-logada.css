@@ -11,6 +11,9 @@ main{
     margin-left: 7.5%;
     margin-right: 7.5%;
 }
+section{
+    margin-bottom: 80px;
+}
 .titulo-personalizado {
   display: flex;
   align-items: center;
@@ -42,3 +45,9 @@ main{
    background-color: black;
 }
 
+.progress-card{
+    
+    width: 80%;
+    height: 200px;
+    background-color: var(--RoxoAzulado);
+}

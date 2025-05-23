@@ -88,10 +88,7 @@ header nav{
  
 }
 
-
-.journey-card{
-    width: 160px;
-    height: 180px;
+.card{
     background-color: var(--RoxoAzulado); /* roxo */
     border-radius: 10px;
     overflow: hidden;
@@ -100,14 +97,23 @@ header nav{
     align-items: center;
 }
 
+
+.journey-card{
+    width: 160px;
+    height: 180px;
+}
+.project-card{
+    height: 180px;
+    width: 250px;
+}
+
 .trasintions{
      transition: transform 300ms ease;
    transform-origin: center center;
 }
-.journey-card:hover {
-    transform: scale(1.0625);
+.card:hover { 
     background-color: #3e248b; 
-    cursor: pointer;/* aumenta 6.25% (aprox. 5px em cada lado) */
+    /* aumenta 6.25% (aprox. 5px em cada lado) */
 }
 .card-img{
     width: 100%;
@@ -129,7 +135,7 @@ header nav{
    transform-origin: center center;
 }
 
-.arrows:hover{
+.hover:hover{
     transform: scale(1.0625);
     cursor: pointer;
 }
@@ -137,14 +143,18 @@ header nav{
 .filter{
     display: flex;
     list-style: none;
-    margin-top: 10px;
+    margin-top: 20px;
     gap: 10px;
+    margin-bottom:30px ;
 
 }
-.filter li{
+.filter-element{
    background-color: var(--RoxoAzulado);
    padding: 10px;
    color: aliceblue;
-    border-radius: 8px;
-   
+    border-radius: 8px; 
 }
+.filter-element:hover{
+      background-color: #3e248b;
+}
+
