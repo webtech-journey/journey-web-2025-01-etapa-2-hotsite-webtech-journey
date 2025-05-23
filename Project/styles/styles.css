@@ -99,12 +99,12 @@ header nav{
 
 
 .journey-card{
-    width: 160px;
-    height: 180px;
+    width: 190px;
+    height: 230px;
 }
 .project-card{
-    height: 180px;
-    width: 250px;
+    height: 230px;
+    width: 280px;
 }
 
 .trasintions{
@@ -157,4 +157,5 @@ header nav{
 .filter-element:hover{
       background-color: #3e248b;
 }
+
 
