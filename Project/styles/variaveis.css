@@ -7,3 +7,24 @@
  --AzulEscuro: #1F2733;
  --PretoEscuro: #171717;
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
+/* Fallback for Webkit browsers */
+html::-webkit-scrollbar {
+    width: 12px;
+}
+html::-webkit-scrollbar-thumb {
+    background: var(--AmareloEscuro);
+    border-radius: 10px;
+    border: 3px solid var(--RoxoEscuro);
+}
+html::-webkit-scrollbar-track {
+    background: black;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: var(--AmareloClaro);
+}
