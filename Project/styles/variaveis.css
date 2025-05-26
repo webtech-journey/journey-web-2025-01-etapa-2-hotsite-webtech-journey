@@ -28,3 +28,12 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb:hover {
     background: var(--AmareloClaro);
 }
+
+hr{
+  flex-grow: 1;
+  height: 5px;
+  background-color: var(--AmareloClaro);
+  border: none;
+  border-radius: 5px;
+  margin: 4rem 5rem;
+}
