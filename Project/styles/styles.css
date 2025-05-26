@@ -593,6 +593,13 @@ main{
 
                     z-index: 2;
 
+                    img{
+                        cursor: pointer;
+                        &:hover{
+                         transform: scale(1.05);
+                        }
+                    }
+
                 }
             }
 
