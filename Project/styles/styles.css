@@ -485,16 +485,15 @@ main{
             width: 33.33%;
             border-radius: 60% / 7%;
             box-shadow: 5px -5px 5px 5px var(--AmareloEscuro), 5px 5px 5px 5px var(--AmareloEscuro);
-            transition: transform 0.3s ease, background-color 0.3s;
+            transition: transform 0.3s ease, background-color 0.3s,box-shadow 0.3s; /* Adiciona transição para box-shadow */
+
             z-index: 2;
 
             &:hover{
                 transform: scale(1.03);
-                transition: transform 0.3s ease, background-color 0.3s;
                 background-color: var(--AmareloClaro);
                 box-shadow: 5px -5px 5px 5px var(--AmareloClaro),5px 5px 5px 5px var(--AmareloClaro);
             }
-            
         }
         .wireframe4__light{
             background-color: var(--AmareloClaro);       
@@ -502,11 +501,10 @@ main{
             width: 33.33%;
             border-radius: 60% / 5%;
             box-shadow: 5px -5px 5px 5px var(--AmareloClaro), 5px 5px 5px 5px var(--AmareloClaro);
-            transition: transform 0.3s ease, background-color 0.3s;
+            transition: transform 0.3s ease, background-color 0.3s,box-shadow 0.3s; /* Adiciona transição para box-shadow */
 
             &:hover{
                 transform: scale(1.03);
-                transition: transform 0.3s ease, background-color 0.3s;
                 background-color: var(--AmareloEscuro);
                 box-shadow: 5px -5px 5px 5px var(--AmareloEscuro), 5px 5px 5px 5px var(--AmareloEscuro);
             }
@@ -644,7 +642,7 @@ main{
         padding: 0 10rem 0 10rem;
 
         .yellow_text{
-            font-weight: 600;
+            font-weight: 700;
         }
     }
 }
