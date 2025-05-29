@@ -14,25 +14,7 @@ main{
 section{
     margin-bottom: 80px;
 }
-.section-title{
-    font-weight: 400;
-    font-size: 25px;
-    color: black;
-    font-size: 35px; font-weight: bolder;
-    text-decoration: underline;
-}
-.titulo-personalizado {
-  
-  display: flex;
-  align-items: center;
-  height: 70px;
-  margin-top: 3rem;
-  margin-bottom: 3.5rem;
- 
-  border-radius: 0.5rem;
-  width:100%;
-   /* ou defina largura fixa se quiser */
-}
+
 
 .titulo-personalizado.grad1{
     background: var(--gradiente1);
@@ -63,6 +45,7 @@ section{
    
     height: 500px;
     margin-bottom: 100px;
+    cursor: pointer;
 }
 .progress-card{
     position:absolute;
@@ -70,7 +53,7 @@ section{
     margin-bottom: 20px;
     align-self: center;
     width: 85%;
-    height: 500px;
+    height: 550px;
    background: no-repeat url(./../assets/img/CardEmpty.png) ;
     background-size: 100% 100%;
     
@@ -129,7 +112,7 @@ section{
     left: 8px;
     
 }
-.progress-container {
+    .progress-container {
     
     position:relative;
     grid-column: 6/11;
@@ -147,15 +130,7 @@ section{
       border: solid var(--RoxoAzulado) 5px;
       
     }
-    .triangle {
-     
-        width: 0px;
-    height: 0px;
-     border-style: solid;
-    border-width: 0 0 50px 60px;
-    border-color: transparent transparent var(--RoxoAzulado) transparent;
-    transform: rotate(0deg);
-    }
+  
 
     .progress-bar {
       height: calc(100% + 5px);
@@ -166,16 +141,44 @@ section{
       bottom: 2px;
     }
 
-    .progress-text {
-      font-family:  "Karantina", system-ui;
-     font-weight: 400; ;
-     font-size: 1.8rem;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #2f1d63;
-      font-weight: bold;
-      line-height: 30px;
-    }
+ .progress-container {
+  position: relative;
+  grid-column: 6/11;
+  grid-row: 9/10;
+  z-index: -1;
+  width: 93%;
+  height: 100%;
+  background-color: #8d8d8d;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  font-family: sans-serif;
+  border: solid var(--RoxoAzulado) 5px;
+}
+
+.progress-bar {
+  height: calc(100% + 5px);
+  width: 60%;
+  background-color: #ebebeb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 2px;
+}
+
+.progress-text {
+  font-family: "Karantina", system-ui;
+  font-weight: 400;
+  font-size: 1.8rem;
+  position: absolute;
+  top: 0;
+  left: 60%; /* Match the bar’s width */
+  transform: translateX(-100%);
+  color: #2f1d63;
+  font-weight: bold;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+
+
 

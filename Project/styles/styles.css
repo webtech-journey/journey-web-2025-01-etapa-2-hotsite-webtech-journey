@@ -78,7 +78,25 @@ header nav{
 }
 
 
+.section-title{
+    font-weight: 400;
+    font-size: 25px;
+    color: black;
+    font-size: 2.5em; font-weight: bolder;
 
+}
+.titulo-personalizado {
+  
+  display: flex;
+  align-items: center;
+  height: 10px;
+  
+  margin-bottom: 3.5rem;
+ 
+  border-radius: 0.5rem;
+  width:100%;
+   /* ou defina largura fixa se quiser */
+}
 
 .carrossel-Journey{
     margin-top: 30px;
@@ -87,9 +105,7 @@ header nav{
     align-items: center;
  
 }
-.section-title{
-    margin-left: 30px;
-}
+
 
 .card{
     background-color: var(--RoxoAzulado); /* roxo */
