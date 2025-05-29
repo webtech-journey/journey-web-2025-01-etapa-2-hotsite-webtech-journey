@@ -1,16 +1,17 @@
 body {
+    gap: 50px;
     font-family: 'Poppins', sans-serif;
     background-color: #ffffff;
-    display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
     margin: 0;
-    padding: 40px 0;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .container {
+    margin: auto;
     background-color: #ffffff;
     padding: 10px;
     border-radius: 10px;
