@@ -1,0 +1,373 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-wrapper {
+    width: 100%;
+    gap:50px;
+    max-width: 1090px; /* Alinhado com a largura dos 4 cards + gaps */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    color: #332264;
+    font-size: 2.8em;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.search-bar {
+    display: flex;
+    width: 100%;
+    margin-bottom: 40px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    max-width: 900px;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    outline: none;
+    color: #333;
+}
+
+.search-bar input::placeholder {
+    color: #a0a0a0;
+}
+
+.search-bar button {
+    background-color: #f7f7f7;
+    border: none;
+    padding: 12px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.search-bar button:hover {
+    background-color: #e8e8e8;
+}
+
+.search-bar button svg {
+    stroke: #332264;
+}
+
+.categories {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+    width: 100%;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.category-button {
+    background-color: #332264;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-button:hover {
+    background-color: #4a3a80;
+    transform: translateY(-2px);
+}
+
+.journeys-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.nav-arrow {
+    background: none;
+    border: none;
+    font-size: 3em;
+    color: #332264;
+    cursor: pointer;
+    padding: 0 15px;
+    transition: color 0.2s ease;
+    outline: none;
+    flex-shrink: 0;
+}
+
+.nav-arrow:hover {
+    color: #4a3a80;
+}
+
+.journeys-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    flex-grow: 1;
+    justify-content: center;
+    max-width: calc(4 * 250px + 3 * 30px);
+}
+
+/* Modificações no .journey-card */
+.journey-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    /* Remover text-align: center; daqui se o conteúdo não for centralizado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Para o posicionamento do image-wrapper */
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.image-wrapper {
+    position: relative; /* Para posicionar o score-arrow-tag */
+    width: 100%;
+    height: 180px; /* Altura fixa para a imagem */
+    overflow: hidden;
+    border-radius: 12px 12px 0 0; /* Arredondamento apenas no topo do image-wrapper */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* NOVO: Estilo para o retângulo "seta" da nota */
+.score-arrow-tag {
+    position: absolute;
+    bottom: 0; /* Alinha na parte inferior da imagem */
+    left: 0;
+    width: 70%; /* Largura que a "seta" ocupa na base da imagem */
+    height: 40px; /* Altura da "seta" */
+    background-color: #f0f2f5; /* Cor de fundo da seta (branco/cinza claro da imagem) */
+    display: flex;
+    align-items: center;
+    padding-left: 20px; /* Padding para o texto */
+    box-sizing: border-box;
+    z-index: 2; /* Acima da imagem */
+
+    /* Forma da "seta" com clip-path */
+    /* Pontos: canto superior esquerdo, canto superior direito,
+               ponta direita inferior, canto inferior esquerdo */
+clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 90% 100%, 0% 100%);}
+
+.score-arrow-tag .score {
+    font-size: 1.1em; /* Tamanho da fonte para a nota */
+    font-weight: 600;
+    color: #332264; /* Cor da nota */
+    margin: 0; /* Remove margem padrão do parágrafo */
+    white-space: nowrap;
+}
+
+
+
+/* NOVO: Seção para o título Journey e a barra de progresso */
+.journey-info-section {
+    background-color: #332264; /* Cor de fundo da seção inferior */
+    color: #fff;
+    padding: 15px 20px; /* Padding para o texto */
+    height: 80px; /* Altura total da seção inferior, incluindo a barra */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaça o título e a porcentagem */
+    position: relative; /* Para a barra de progresso */
+    border-radius: 0 0 12px 12px; /* Arredondamento inferior do card */
+    overflow: hidden; /* Garante que a barra não vaze */
+    box-sizing: border-box;
+}
+
+/* Pseudo-elemento para a barra de progresso */
+.journey-info-section::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 95%; /* Use a porcentagem desejada para o progresso */
+    background-color: #4a3a80; /* Cor da barra de progresso (mais clara) */
+    z-index: 0; /* Fica abaixo do texto */
+    transition: width 0.5s ease-in-out;
+}
+
+.journey-info-section .journey-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #fff; /* Cor do texto "Journey" */
+    margin: 0; /* Remover margens padrão */
+    z-index: 1; /* Fica acima da barra */
+    position: relative; /* Para garantir o z-index */
+}
+
+.journey-info-section .percentage-text {
+    font-size: 1.3em; /* Tamanho da fonte para a porcentagem */
+    font-weight: 600;
+    color: #fff; /* Cor do texto "95%" */
+    margin: 0; /* Remover margens padrão */
+    z-index: 1; /* Fica acima da barra */
+    position: relative; /* Para garantir o z-index */
+}
+
+/* Remover .card-content e .progress-bar-container/text/bar antigos */
+/* Se existirem, estes se tornaram obsoletos com a nova estrutura */
+.card-content,
+.progress-bar-container,
+.progress-bar,
+.progress-text {
+    display: none; /* Ou remova estas classes do HTML e CSS */
+}
+
+.bottom-line {
+    width: 100%;
+    max-width: 1090px;
+    height: 3px;
+    background-color: #332264;
+    margin-top: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        max-width: 90%;
+    }
+    .journeys-grid {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.2em;
+        text-align: center;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        border: none;
+        box-shadow: none;
+    }
+
+    .search-bar input {
+        border: 1px solid #dcdcdc;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
+        border: 1px solid #dcdcdc;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .journeys-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+
+    .nav-arrow {
+        font-size: 2.5em;
+        padding: 0 10px;
+    }
+    /* Ajustes para mobile no score-arrow-tag */
+    .score-arrow-tag {
+        height: 35px;
+        font-size: 0.9em;
+        padding-left: 15px;
+    }
+    .journey-info-section {
+        height: 70px;
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.8em;
+    }
+
+    .category-button {
+        width: 80%;
+    }
+}
+/* PARCEIROS -----------------------------------------------------------------------*/
+#paceirosHeader h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#parceiros {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    gap: 100px;
+}
+
+
+#parceiros img {
+    width: 100px;
+    outline: 3px solid #332264;
+    border-radius: 100px;
+}
+
+.parceiro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
