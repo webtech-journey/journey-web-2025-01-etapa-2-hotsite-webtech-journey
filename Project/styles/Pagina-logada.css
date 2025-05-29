@@ -8,8 +8,8 @@ body{
 
 main{
     margin-top: 3rem;
-    margin-left: 7.5%;
-    margin-right: 7.5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 section{
     margin-bottom: 80px;
@@ -17,17 +17,21 @@ section{
 .section-title{
     font-weight: 400;
     font-size: 25px;
+    color: black;
+    font-size: 35px; font-weight: bolder;
+    text-decoration: underline;
 }
 .titulo-personalizado {
   
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 70px;
   margin-top: 3rem;
-  font-size: 20px;
-  color: white;
+  margin-bottom: 3.5rem;
+ 
   border-radius: 0.5rem;
-  width:100%; /* ou defina largura fixa se quiser */
+  width:100%;
+   /* ou defina largura fixa se quiser */
 }
 
 .titulo-personalizado.grad1{
@@ -69,7 +73,7 @@ section{
     height: 500px;
    background: no-repeat url(./../assets/img/CardEmpty.png) ;
     background-size: 100% 100%;
-    border: solid;
+    
 
    display: grid;
    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
