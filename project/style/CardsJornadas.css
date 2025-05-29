@@ -8,17 +8,18 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f5f5;
-  display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
 }
 
 /* Container principal */
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1200px;       /* define um limite para não ficar esticado em telas muito grandes */
+  margin: 50px auto;       /* 50px de espaçamento acima e abaixo, e auto nas laterais para centralizar */
+  padding: 0 20px;         /* 20px de “gutter” nas laterais em qualquer tamanho de tela */
+  
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -160,7 +161,7 @@ stroke-width: 10px;
   display: flex;
   align-items: center;
   margin-left: 20px;
-  border-radius: 0 15px 15px 0;
+  border-radius: 15px 0px 0px 15px;
 }
 
 .right-card .card-content {
