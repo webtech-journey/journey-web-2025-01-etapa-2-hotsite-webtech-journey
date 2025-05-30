@@ -56,9 +56,9 @@ section{
     height: 550px;
    background: no-repeat url(./../assets/img/CardEmpty.png) ;
     background-size: 100% 100%;
-    
-
+ box-shadow: 10px 5px 5px black;
    display: grid;
+   border-radius: 30px;
    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%; ;
 }
@@ -114,10 +114,10 @@ section{
 }
     .progress-container {
     
-    position:relative;
-    grid-column: 6/11;
-    grid-row: 9/10;
-    z-index: -1;
+      position:relative;
+      grid-column: 6/11;
+      grid-row: 9/10;
+      z-index: -1;
       width: 93%;
       height: 100%;
       background-color: #8d8d8d;
@@ -133,27 +133,27 @@ section{
   
 
     .progress-bar {
-      height: calc(100% + 5px);
-      width: 60%;
-      background-color: #ebebeb;
-      
-      position: relative;
-      bottom: 2px;
+        height: calc(100% + 5px);
+        width: 60%;
+        background-color: #ebebeb;
+        
+        position: relative;
+        bottom: 2px;
     }
 
- .progress-container {
-  position: relative;
-  grid-column: 6/11;
-  grid-row: 9/10;
-  z-index: -1;
-  width: 93%;
-  height: 100%;
-  background-color: #8d8d8d;
-  border-bottom-right-radius: 10px;
-  overflow: hidden;
-  font-family: sans-serif;
-  border: solid var(--RoxoAzulado) 5px;
-}
+    .progress-container {
+        position: relative;
+        grid-column: 6/11;
+        grid-row: 9/10;
+        z-index: -1;
+        width: 93%;
+        height: 100%;
+        background-color: #8d8d8d;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        font-family: sans-serif;
+        border: solid var(--RoxoAzulado) 5px;
+    }
 
 .progress-bar {
   height: calc(100% + 5px);
@@ -182,3 +182,4 @@ section{
 
 
 
+    

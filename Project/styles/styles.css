@@ -156,13 +156,17 @@ header nav{
 
 .arrows{
    height: 50px;
-   transition: transform 300ms ease;
-   transform-origin: center center;
+ 
+}
+.arrows:hover{
+    transform: scale(1.0625);
+     cursor: pointer;
 }
 
 .hover:hover{
     transform: scale(1.0625);
     cursor: pointer;
+     box-shadow: 10px 5px 5px black;
 }
 .hover2:hover{
     transform: scale(1.01);
@@ -173,18 +177,20 @@ header nav{
     display: flex;
     list-style: none;
     margin-top: 15px;
-    gap: 10px;
+    gap: 20px;
     margin-bottom:30px ;
 
 }
 .filter-element{
    background-color: var(--RoxoAzulado);
-   padding: 20px;
+   padding: 15px;
    color: aliceblue;
     border-radius: 8px; 
 }
 .filter-element:hover{
       background-color: #3e248b;
+      cursor: pointer;
 }
+
 
 
