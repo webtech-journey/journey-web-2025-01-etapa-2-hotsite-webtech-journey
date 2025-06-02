@@ -40,6 +40,12 @@ hr{
 
 
 
+
+
+
+
+
+
 .section-title{
     font-weight: 400;
     font-size: 25px;
@@ -114,4 +120,34 @@ hr{
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
+}
+
+
+.hover:hover{
+    transform: scale(1.0625);
+    cursor: pointer;
+     box-shadow: 10px 5px 5px black;
+}
+.hover2:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+.filter{
+    display: flex;
+    list-style: none;
+    margin-top: 15px;
+    gap: 20px;
+    margin-bottom:30px ;
+
+}
+.filter-element{
+   background-color: var(--RoxoAzulado);
+   padding: 15px;
+   color: aliceblue;
+    border-radius: 8px; 
+}
+.filter-element:hover{
+      background-color: #3e248b;
+      cursor: pointer;
 }
