@@ -17,7 +17,11 @@ span{
 .underline_yellow{
     text-decoration: underline;
     text-decoration-color: var(--AmareloClaro);
+    &:hover{
+        text-decoration-color: var(--AmareloEscuro);
+    }
 }
+
 .yellow_text{
 
     color: var(--AmareloClaro);
