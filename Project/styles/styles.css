@@ -193,4 +193,16 @@ header nav{
 }
 
 
+.titulo-personalizado.grad1{
+    background: var(--gradiente1);
+}
+    
+.titulo-personalizado.grad2{
+     background: var(--gradiente2);
+  
+   
+}
+.titulo-personalizado.grad3{
+    background: var(--gradiente3);
+}
 
