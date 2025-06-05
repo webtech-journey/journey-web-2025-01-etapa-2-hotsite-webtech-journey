@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body p {
+    font-size: large;
+}
+
+body h1 {
+    font-size: xxx-large;
+}
+
+body h2 {
+    font-size: xx-large;
+}
+
+body h3 {
+    font-size: x-large;
+}
+
+body h4 {
+    font-size: large;
+    font-weight: normal;
+}
+
+main {
+    margin-bottom: 100px;
+}
+
+/* BANNER -------------------------------------------------*/
+#banner {
+    background-color: #332264;
+    display: flex;
+    margin: 30px 50px;
+    color: #fff;
+    border-radius: 20px;
+    height: 400px;
+    overflow: hidden;
+    outline: 3px solid #F5C01A;
+}
+
+#banner h1 {
+    margin: 0;
+}
+
+#banner h3 {
+    font-weight: normal;
+}
+
+#banner article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px;
+    flex: 1;
+    width: auto;
+}
+
+
+#banner img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+    /* flex-shrink: 0; */
+}
+
+/* ------------------------------------------------------*/
+
+/* Select optiom ------------------------------------------------------*/
+#select-opc {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#select-opc h3 {
+    position: relative;
+    display: inline-block;
+    color: #332264;
+}
+
+#select-opc h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 3px;
+    background-color: #332264;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#select-opc h3:hover::after {
+    transform: scaleX(1);
+}
+
+/* ----------------------------------------------------------------*/
+
+/* Pessoas ------------------------------------------------------*/
+
+#pessoas {
+    margin: 0 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#usuariosHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+#filtros {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filtro {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.filtro input {
+    width: 310px;
+    border: none;
+    outline: 3px solid #332264;
+    border-radius: 10px;
+    padding: 0 1%;
+}
+
+.filtro select {
+    width: 150px;
+    border: none;
+    outline: 3px solid #332264;
+    border-radius: 10px;
+    background-color: white;
+}
+
+/* Usuarios -------------------------------------------------------------*/
+
+.usuario {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#usuarioTitulos h3,
+.usuario>* {
+    flex: 1;
+    text-align: center;
+}
+
+#usuarioTitulos {
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+
+
+.face {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.face img {
+    width: 40px;
+    height: auto;
+}
+
+/* -----------------------------------------------------------------------*/
+
+/* PARCEIROS -----------------------------------------------------------------------*/
+#paceirosHeader h3 {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+#parceiros {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    gap: 100px;
+}
+
+
+#parceiros img {
+    width: 100px;
+    outline: 3px solid #332264;
+    border-radius: 100px;
+}
+
+.parceiro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ---------------------------------------------------------------------------------*/  
