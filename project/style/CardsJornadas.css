@@ -14,21 +14,23 @@ body {
 }
 
 /* Container principal */
+/* Container principal */
 .container {
   width: 100%;
-  max-width: 1200px;       /* define um limite para não ficar esticado em telas muito grandes */
-  margin: 50px auto;       /* 50px de espaçamento acima e abaixo, e auto nas laterais para centralizar */
-  padding: 0 20px;         /* 20px de “gutter” nas laterais em qualquer tamanho de tela */
+  /* Remova ou aumente consideravelmente o max-width */
+  /* max-width: 1200px; */ /* Remova esta linha ou defina um valor muito maior */
+  margin: 50px auto; /* Mantém o espaçamento vertical e centraliza se houver um max-width definido */
+  padding: 0 150px; /* 20px de “gutter” nas laterais em qualquer tamanho de tela */
   
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
-
 /* Grupo de cards */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* Centraliza os cards quando houver espaço extra */
 }
 
 /* Estilo base dos cards */
@@ -202,16 +204,18 @@ stroke-width: 10px;
 }
 
 /* ==== Responsivo ==== */
+/* ==== Responsivo ==== */
 @media (max-width: 1024px) {
   .cards-container {
     flex-direction: column;
-    gap: 40px;
+    gap: 40px; /* Mantenha o espaçamento entre os cards empilhados */
+    align-items: center; /* Centraliza os cards quando estão em coluna */
   }
   
   .left-card,
   .right-card,
   .note-card {
-    width: 100%;
+    width: 100%; /* Ocupa 100% da largura em telas menores */
     margin-left: 0;
   }
 }

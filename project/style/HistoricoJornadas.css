@@ -1,3 +1,23 @@
+body p {
+    font-size: large;
+}
+
+body h1 {
+    font-size: xx-large;
+}
+
+body h2 {
+    font-size: xx-large;
+}
+
+body h3 {
+    font-size: x-large;
+}
+
+body h4 {
+    font-size: large;
+    font-weight: normal;
+}
 body {
     gap: 50px;
     font-family: 'Poppins', sans-serif;
@@ -10,31 +30,46 @@ body {
 
 }
 
+section#historico-jornadas-content,
+section#parceiros-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     margin: auto;
-    background-color: #ffffff;
     padding: 10px;
     border-radius: 10px;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1600px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* AJUSTE: Transformando o container do conteúdo em um grid para alinhar com os cards */
 .content-wrapper {
     width: 100%;
-    gap:50px;
-    max-width: 1090px; /* Alinhado com a largura dos 4 cards + gaps */
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 100px; /* Mesmo gap do .journeys-grid para consistência de largura */
+    justify-content: center;
+    margin-bottom: 60px; /* Espaço que antes vinha do .journeys-section */
 }
+
+.title,
+.search-bar,
+.categories {
+    /* AJUSTE: Faz os elementos ocuparem todas as colunas do novo grid */
+    grid-column: 1 / -1;
+}
+
 
 .title {
     color: #332264;
-    font-size: 2.8em;
+    font-size: 3.0em;
     font-weight: 700;
     line-height: 1.2;
     text-align: left;
@@ -51,7 +86,7 @@ body {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    max-width: 900px;
+    justify-self: center;
 }
 
 .search-bar input {
@@ -118,7 +153,10 @@ body {
     justify-content: center;
     width: 100%;
     margin-bottom: 60px;
-}
+    position: relative;
+    
+    
+--arrow-offset: clamp(-175px, -5vw, -25px);}
 
 .nav-arrow {
     background: none;
@@ -129,7 +167,20 @@ body {
     padding: 0 15px;
     transition: color 0.2s ease;
     outline: none;
-    flex-shrink: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.nav-arrow.left-arrow {
+    /* Usa a variável definida no elemento pai */
+    left: var(--arrow-offset);
+}
+
+.nav-arrow.right-arrow {
+    /* Usa a mesma variável para consistência */
+    right: var(--arrow-offset);
 }
 
 .nav-arrow:hover {
@@ -139,13 +190,11 @@ body {
 .journeys-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    flex-grow: 1;
+    gap: 100px;
+    width: 100%;
     justify-content: center;
-    max-width: calc(4 * 250px + 3 * 30px);
 }
 
-/* Modificações no .journey-card */
 .journey-card {
     background-color: #fff;
     border-radius: 12px;
@@ -153,9 +202,8 @@ body {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
-    /* Remover text-align: center; daqui se o conteúdo não for centralizado */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative; /* Para o posicionamento do image-wrapper */
+    position: relative;
 }
 
 .journey-card:hover {
@@ -164,11 +212,11 @@ body {
 }
 
 .image-wrapper {
-    position: relative; /* Para posicionar o score-arrow-tag */
+    position: relative;
     width: 100%;
-    height: 180px; /* Altura fixa para a imagem */
     overflow: hidden;
-    border-radius: 12px 12px 0 0; /* Arredondamento apenas no topo do image-wrapper */
+    border-radius: 12px 12px 0 0;
+    aspect-ratio: 4 / 4;
 }
 
 .image-wrapper img {
@@ -178,99 +226,89 @@ body {
     display: block;
 }
 
-/* NOVO: Estilo para o retângulo "seta" da nota */
 .score-arrow-tag {
     position: absolute;
-    bottom: 0; /* Alinha na parte inferior da imagem */
+    bottom: 0;
     left: 0;
-    width: 70%; /* Largura que a "seta" ocupa na base da imagem */
-    height: 40px; /* Altura da "seta" */
-    background-color: #f0f2f5; /* Cor de fundo da seta (branco/cinza claro da imagem) */
+    width: 70%;
+    height: 40px;
+    background-color: #f0f2f5;
     display: flex;
     align-items: center;
-    padding-left: 20px; /* Padding para o texto */
+    padding-left: 20px;
     box-sizing: border-box;
-    z-index: 2; /* Acima da imagem */
+    z-index: 2;
 
-    /* Forma da "seta" com clip-path */
-    /* Pontos: canto superior esquerdo, canto superior direito,
-               ponta direita inferior, canto inferior esquerdo */
 clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 90% 100%, 0% 100%);}
 
 .score-arrow-tag .score {
-    font-size: 1.1em; /* Tamanho da fonte para a nota */
+    font-size: 1.1em;
     font-weight: 600;
-    color: #332264; /* Cor da nota */
-    margin: 0; /* Remove margem padrão do parágrafo */
+    color: #332264;
+    margin: 0;
     white-space: nowrap;
 }
 
-
-
-/* NOVO: Seção para o título Journey e a barra de progresso */
 .journey-info-section {
-    background-color: #332264; /* Cor de fundo da seção inferior */
+    background-color: #332264;
     color: #fff;
-    padding: 15px 20px; /* Padding para o texto */
-    height: 80px; /* Altura total da seção inferior, incluindo a barra */
+    padding: 15px 20px;
+    height: 80px;
     display: flex;
+    flex-shrink: 0;
     align-items: center;
-    justify-content: space-between; /* Espaça o título e a porcentagem */
-    position: relative; /* Para a barra de progresso */
-    border-radius: 0 0 12px 12px; /* Arredondamento inferior do card */
-    overflow: hidden; /* Garante que a barra não vaze */
+    justify-content: space-between;
+    position: relative;
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
     box-sizing: border-box;
 }
 
-/* Pseudo-elemento para a barra de progresso */
 .journey-info-section::before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
-    width: 95%; /* Use a porcentagem desejada para o progresso */
-    background-color: #4a3a80; /* Cor da barra de progresso (mais clara) */
-    z-index: 0; /* Fica abaixo do texto */
+    width: 95%;
+    background-color: #4a3a80;
+    z-index: 0;
     transition: width 0.5s ease-in-out;
 }
 
 .journey-info-section .journey-title {
     font-size: 1.3em;
     font-weight: 600;
-    color: #fff; /* Cor do texto "Journey" */
-    margin: 0; /* Remover margens padrão */
-    z-index: 1; /* Fica acima da barra */
-    position: relative; /* Para garantir o z-index */
+    color: #fff;
+    margin: 0;
+    z-index: 1;
+    position: relative;
 }
 
 .journey-info-section .percentage-text {
-    font-size: 1.3em; /* Tamanho da fonte para a porcentagem */
+    font-size: 1.3em;
     font-weight: 600;
-    color: #fff; /* Cor do texto "95%" */
-    margin: 0; /* Remover margens padrão */
-    z-index: 1; /* Fica acima da barra */
-    position: relative; /* Para garantir o z-index */
+    color: #fff;
+    margin: 0;
+    z-index: 1;
+    position: relative;
 }
 
-/* Remover .card-content e .progress-bar-container/text/bar antigos */
-/* Se existirem, estes se tornaram obsoletos com a nova estrutura */
 .card-content,
 .progress-bar-container,
 .progress-bar,
 .progress-text {
-    display: none; /* Ou remova estas classes do HTML e CSS */
+    display: none;
 }
 
 .bottom-line {
     width: 100%;
-    max-width: 1090px;
+    max-width: 1400px;
     height: 3px;
     background-color: #332264;
     margin-top: 50px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 1024px) {
     .content-wrapper {
         max-width: 90%;
@@ -313,12 +351,8 @@ clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 90% 100%, 0% 100%);}
         grid-template-columns: 1fr;
         max-width: 350px;
     }
+    
 
-    .nav-arrow {
-        font-size: 2.5em;
-        padding: 0 10px;
-    }
-    /* Ajustes para mobile no score-arrow-tag */
     .score-arrow-tag {
         height: 35px;
         font-size: 0.9em;
@@ -343,8 +377,8 @@ clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 90% 100%, 0% 100%);}
         width: 80%;
     }
 }
-/* PARCEIROS -----------------------------------------------------------------------*/
-#paceirosHeader h3 {
+
+#parceirosHeader h3 {
     display: flex;
     justify-content: center;
     margin-top: 50px;
@@ -352,9 +386,11 @@ clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 90% 100%, 0% 100%);}
 
 #parceiros {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     gap: 100px;
+    margin-top: 50px;
 }
 
 
@@ -371,4 +407,3 @@ clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 90% 100%, 0% 100%);}
     align-items: center;
     gap: 10px;
 }
-
