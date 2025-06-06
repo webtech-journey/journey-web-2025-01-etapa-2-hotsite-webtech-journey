@@ -49,20 +49,18 @@ section#parceiros-content {
     align-items: center;
 }
 
-/* AJUSTE: Transformando o container do conteúdo em um grid para alinhar com os cards */
 .content-wrapper {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 100px; /* Mesmo gap do .journeys-grid para consistência de largura */
+    gap: 100px; 
     justify-content: center;
-    margin-bottom: 60px; /* Espaço que antes vinha do .journeys-section */
+    margin-bottom: 60px; 
 }
 
 .title,
 .search-bar,
 .categories {
-    /* AJUSTE: Faz os elementos ocuparem todas as colunas do novo grid */
     grid-column: 1 / -1;
 }
 
@@ -377,6 +375,10 @@ clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 90% 100%, 0% 100%);}
         width: 80%;
     }
 }
+
+/* -----------------------------------------------------------------------*/
+
+/* PARCEIROS -----------------------------------------------------------------------*/
 
 #parceirosHeader h3 {
     display: flex;
