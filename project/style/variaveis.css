@@ -1,0 +1,57 @@
+:root{
+ --RoxoAzulado: #332264;
+ --RoxoEscuro: #1F153D;
+ --AmareloEscuro: #FDBC2F;
+ --AzulClaro: #332264;
+ --AzulEscuro: #1F2733;
+ --PretoEscuro: #171717;
+ --gradiente3:linear-gradient(
+    45deg,
+    #332264 0%,
+    #332264 65%,
+    #FDBC2F 65%,
+    #FDBC2F 68%,
+    #332264 68%,
+    #332264 71%,
+    #FDBC2F 71%,
+    #FDBC2F 77%,
+    #332264 77%,
+    #332264 80%,
+    #F5C01A 80%,
+    #F5C01A 85%,
+    #F5C01A 100%
+  );
+ --gradiente2:linear-gradient(
+    45deg,
+    #332264 0%,
+    #332264 65%,
+    #FDBC2F 65%,
+    #FDBC2F 68%,
+    #332264 68%,
+    #332264 71%,
+    #FDBC2F 71%,
+    #FDBC2F 77%,
+    #332264 77%,
+    #332264 80%,
+    #F5C01A 80%,
+    #F5C01A 85%,
+    #F5C01A 100%
+  );
+ --gradiente1: linear-gradient(
+      45deg,
+      #332264 0%,
+      #332264 55%,
+      #FDBC2F 55%,
+      #FDBC2F 58%,
+      #332264 58%,
+      #332264 61%,
+      #FDBC2F 61%,
+      #FDBC2F 67%,
+      #332264 67%,
+      #332264 70%,
+      #F5C01A 70%,
+      #F5C01A 75%,
+      #F5C01A 100%
+    );
+
+}
