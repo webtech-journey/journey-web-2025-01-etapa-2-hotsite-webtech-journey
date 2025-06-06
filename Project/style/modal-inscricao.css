@@ -1,0 +1,133 @@
+@import url(./variaveis.css);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+}
+
+main {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.journey-subscription {
+   
+    max-width: 1100px;
+    min-height: 800px;
+    background-color: var(--RoxoAzulado);
+    border-radius: 30px;
+    border: solid var(--AmareloEscuro) 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subscription-header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    color: var(--AmareloEscuro);
+    font-size: 1.5rem;
+    border-bottom: solid 2px var(--AmareloEscuro); /* se quiser só a parte de baixo */
+    padding: 5px 20px 10px;
+    margin-bottom: 100px;
+}
+
+.subscription-img {
+    filter: brightness(0) saturate(100%) invert(79%) sepia(86%) saturate(629%) hue-rotate(1deg) brightness(102%) contrast(101%);
+    height: 50px;
+}
+
+
+.comeback-button {
+  color: white;
+  margin-left: auto;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.comeback-button:hover{
+    color: rgb(207, 206, 206);
+}
+
+.subscription-form{
+    width: 90%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+
+}
+.form-container{
+    display: flex;
+
+}
+
+.input-container{
+    width: 45%;
+    height: 50px;
+    background-color: azure;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+     
+    
+}
+
+.input-container img{
+    margin-left: 15px;
+    height: 40px;
+   
+}
+
+
+.input-container input{
+    margin: 0;
+    width: 85%;
+    height: 100%;
+    border-radius: 0px 15px 15px 0px;
+    border: none;
+}
+.submit-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    color: white;
+    font-size: x-small;
+    margin-top: 30px;
+    gap: 50px;
+    
+}
+.terms-and-services-container{
+    width: 90%;
+}
+
+#submit-btn{
+    border-radius: 10px;
+    width: 100%;
+    color: var(--RoxoAzulado);
+    height: 65px;
+    font-size: 1.3rem;
+    background-color: var(--AmareloEscuro);
+    cursor: pointer;
+}
+#submit-btn:hover{
+    background-color: #d39d28;
+}

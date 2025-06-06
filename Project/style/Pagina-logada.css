@@ -1,0 +1,185 @@
+@import url('./variaveis.css');
+
+body{
+    margin: 0;
+}
+
+
+
+main{
+    margin-top: 3rem;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+section{
+    margin-bottom: 80px;
+}
+
+
+.titulo-personalizado.grad1{
+    background: var(--gradiente1);
+}
+    
+.titulo-personalizado.grad2{
+     background: var(--gradiente2);
+  
+   
+}
+.titulo-personalizado.grad3{
+    background: var(--gradiente3);
+}
+
+.line-break{
+   height: 5px;
+   color: black;
+   border-radius: 10px;
+  
+   background-color: black;
+}
+
+
+.ongoing-journey{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+    height: 500px;
+    margin-bottom: 100px;
+    cursor: pointer;
+}
+.progress-card{
+    position:absolute;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    align-self: center;
+    width: 85%;
+    height: 550px;
+   background: no-repeat url(./../assets/img/CardEmpty.png) ;
+    background-size: 100% 100%;
+ box-shadow: 10px 5px 5px black;
+   display: grid;
+   border-radius: 30px;
+   grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+   grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%; ;
+}
+
+
+.ongoing-journey-title{
+    grid-row: 2/4;
+    
+    text-align: center;
+    grid-column: 1/6;
+   
+    color: var(--RoxoAzulado);
+    font-weight: 600;
+    font-size:3rem;
+    text-decoration: underline var(--RoxoAzulado);
+
+}
+
+.ongoing-journey-content{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--RoxoAzulado);
+    margin-left: 10%;
+}
+#content{
+    grid-column: 1/5;
+    grid-row: 5/5;
+}
+#instructor{
+    grid-column: 1/5;
+    grid-row: 7/7;
+}
+#sponsor{
+    grid-column: 1/5;
+    grid-row: 9/9;
+}
+#ongoing-journey-image{
+    grid-column: 6/11;
+    grid-row: 2/9;
+    width: 90%;
+    height: 90%;
+    margin-top: 2%;
+  
+    border-radius: 5%;
+}
+.down-area-container{
+    grid-column: 5/11;
+    grid-row: 10/11;
+    display: flex;
+    position: relative;
+    left: 8px;
+    
+}
+    .progress-container {
+    
+      position:relative;
+      grid-column: 6/11;
+      grid-row: 9/10;
+      z-index: -1;
+      width: 93%;
+      height: 100%;
+      background-color: #8d8d8d;
+      
+      position: relative;
+      border-bottom-right-radius: 10px;
+  
+      overflow: hidden;
+      font-family: sans-serif;
+      border: solid var(--RoxoAzulado) 5px;
+      
+    }
+  
+
+    .progress-bar {
+        height: calc(100% + 5px);
+        width: 60%;
+        background-color: #ebebeb;
+        
+        position: relative;
+        bottom: 2px;
+    }
+
+    .progress-container {
+        position: relative;
+        grid-column: 6/11;
+        grid-row: 9/10;
+        z-index: -1;
+        width: 93%;
+        height: 100%;
+        background-color: #8d8d8d;
+        border-bottom-right-radius: 10px;
+        overflow: hidden;
+        font-family: sans-serif;
+        border: solid var(--RoxoAzulado) 5px;
+    }
+
+.progress-bar {
+  height: calc(100% + 5px);
+  width: 60%;
+  background-color: #ebebeb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 2px;
+}
+
+.progress-text {
+  font-family: "Karantina", system-ui;
+  font-weight: 400;
+  font-size: 1.8rem;
+  position: absolute;
+  top: 0;
+  left: 60%; /* Match the bar’s width */
+  transform: translateX(-100%);
+  color: #2f1d63;
+  font-weight: bold;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+
+
+
+    
