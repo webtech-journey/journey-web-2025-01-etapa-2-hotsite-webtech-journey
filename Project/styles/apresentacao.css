@@ -24,7 +24,7 @@ span{
 
 .yellow_text{
 
-    color: var(--AmareloClaro);
+    /* color: var(--AmareloClaro); */
 
     &:hover{
         color: var(--AmareloEscuro);
@@ -784,5 +784,10 @@ main{
         }
 
 
+
+}
+
+
+@media screen and (max-width: 768px) {
 
 }
