@@ -1,0 +1,63 @@
+.logo_nome{
+    width: 15rem;
+    margin-top: .5rem;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Roxo);
+    width: 100%;
+    height: 4.5rem;
+    padding: 0 2rem;
+    position: fixed;
+}
+
+.logo a {
+    text-decoration: none;
+    color: var(--Branco);
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.paginacao ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.paginacao li a {
+    text-decoration: none;
+    color: var(--Branco);
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.3s ease-in-out;
+}
+
+.paginacao a:hover {
+    color: var(--Amarelo);
+}
+
+.paginacao a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--Amarelo);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.paginacao a:hover::after {
+    transform: scaleX(1);
+}
