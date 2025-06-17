@@ -1,0 +1,21 @@
+/* USUARIOS */
+.user {
+  display: flex;
+  border-radius: 10px;
+  padding: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.user > * {
+  flex: 1;
+  text-align: center;
+}
+

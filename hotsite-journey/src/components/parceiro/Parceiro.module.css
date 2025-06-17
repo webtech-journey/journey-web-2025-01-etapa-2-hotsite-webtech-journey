@@ -1,0 +1,13 @@
+.parceiro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.imagemParceiro {
+  width: 100px;
+  outline: 3px solid #332264;
+  border-radius: 100px;
+}
