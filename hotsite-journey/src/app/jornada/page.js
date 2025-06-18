@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import styles from "./Jornada.module.css";
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -32,10 +33,9 @@ export default function Jornada() {
             </p>
           </div>
         </article>
-        <Image src="/react.png" alt="logo react" width={400} height={400} className={styles.img_banner} />
+        <img src="/react.png" alt="logo react"  className={styles.img_banner} />
       </section>
 
-      {/* Botões de alternância */}
       <section className={styles.select_opc}>
         <h3
           className={abaAtiva === 'etapas' ? styles.abaAtiva : ''}
@@ -51,17 +51,16 @@ export default function Jornada() {
         </h3>
       </section>
 
-      {/* Conteúdo com transição animada */}
       <section className={styles.opc}>
         <AnimatePresence mode="wait">
           {abaAtiva === 'etapas' && (
             <motion.article
               key="etapas"
               className={styles.etapas}
-              initial={{ x: -100, opacity: 0 }}
+              initial={{ x: 1000, opacity: 1 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 100, opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              exit={{ x: 2000, opacity: 1 }}
+              transition={{ duration: 0.2 }}
             >
               <Etapa etapa={1} />
               <Etapa etapa={2} />
@@ -74,10 +73,10 @@ export default function Jornada() {
             <motion.article
               key="pessoas"
               id="pessoas"
-              initial={{ x: 100, opacity: 0 }}
+              initial={{ x: -1000, opacity: 1 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -100, opacity: 0 }}
-              transition={{ duration: 0.4 }}
+              exit={{ x: -2000, opacity: 1 }}
+              transition={{ duration: 0.2 }}
             >
               <div id="usuariosHeader">
                 <div>

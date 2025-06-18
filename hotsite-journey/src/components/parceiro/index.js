@@ -1,10 +1,11 @@
 import styles from './Parceiro.module.css';
 
+
 export function Parceiro() {
   return (
     <div className={styles.parceiro}>
       <img
-        src="/assets/img/menu_fig.png"
+        src="/menu_fig.png"
         alt="Parceiro"
         className={styles.imagemParceiro}
       />

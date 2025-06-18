@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import styles from './Etapa.module.css';
 
 export function Etapa({ etapa }) {
@@ -7,13 +6,7 @@ export function Etapa({ etapa }) {
       {/* Left Card */}
       <div className={`${styles.card} ${styles.leftCard}`}>
         <div className={styles.logoContainer}>
-          <Image
-            src="/assets/img/react.svg"
-            alt="React Logo"
-            className={styles.reactLogo}
-            width={48}
-            height={48}
-          />
+          <img src="/react.svg" alt="React Logo" className={styles.reactLogo} />
           <div className={styles.logoText}>
             <h1>React</h1>
             <h2>Introdução</h2>
