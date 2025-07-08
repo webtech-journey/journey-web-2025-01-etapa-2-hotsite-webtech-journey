@@ -1,0 +1,10 @@
+
+.footer{
+    background-color: var(--Roxo);
+    color: var(--Branco);
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+}

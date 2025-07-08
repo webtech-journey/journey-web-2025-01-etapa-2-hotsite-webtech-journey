@@ -1,0 +1,179 @@
+/* CARD BASE */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: visible;
+}
+
+/* LEFT CARD */
+.leftCard {
+  background-color: #2aa9b7;
+  color: #fff;
+  padding: 24px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 0 15px 0 0;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.reactLogo {
+  width: 60px;
+  height: 60px;
+  margin-right: 12px;
+}
+
+.logoText h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.logoText h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.etapaTag {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  color: #333;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.etapaTag::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 100%;
+  border-style: solid;
+  border-width: 15px 0 15px 15px;
+  border-color: transparent transparent transparent #fff;
+}
+
+/* PROGRESS */
+.progressContainer {
+  position: absolute;
+  bottom: -55px;
+  left: 0;
+  width: 100%;
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  width: 300px;
+  height: 50px;
+  background-color: #8E81B2;
+  border-radius: 0 0 15px 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 35%;
+  background-color: #332264;
+  border-radius: 0 0 0px 15px;
+  z-index: 0;
+}
+
+.progressBar:has(.textFillEnd .icon-lock) .progressFill {
+  display: none;
+}
+
+.textFillStart,
+.textFillEnd {
+  position: relative;
+  display: inline-flex;
+  z-index: 1;
+  color: #fff;
+  font-size: 14px;
+}
+
+.textFillStart {
+  margin-right: 50px;
+}
+
+.textFillEnd {
+  margin-left: 80px;
+}
+
+.textFillStart .icon-chart-column-big {
+  margin-right: 10px;
+  stroke-width: 10px;
+}
+
+/* RIGHT CARD */
+.rightCard {
+  background: linear-gradient(90deg, #332264 73%, #5a488b 93%);
+  color: #fff;
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+
+  border-radius: 15px 0px 0px 15px;
+}
+
+.cardContent {
+  padding: 24px;
+}
+
+.rightCard p {
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* NOTE CARD */
+.noteCard {
+  background-color: #fff;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 8px 8px 0;
+  margin-left: 0;
+}
+
+.noteCard .cardContent {
+  padding: 24px;
+  text-align: center;
+}
+
+.noteCard h3 {
+  color: #4c3a78;
+  font-size: 20px;
+  margin-bottom: 16px;
+  font-weight: 600;
+
+}
+
+.grade {
+  font-size: 48px;
+  font-weight: 600;
+  color: #4c3a78;
+}
+
+/* Container geral */
+.cardsContainer {
+  display: flex;
+  gap: 0rem;
+  margin-bottom: 4rem;
+}

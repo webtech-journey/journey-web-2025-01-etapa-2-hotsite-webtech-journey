@@ -1,0 +1,1069 @@
+openapi: 3.0.0
+info:
+  title: API da Plataforma de Jornadas Webtech (Final)
+  description: API RESTful completa com fluxo de autenticação, CRUD para todas as entidades e tipos de dados otimizados.
+  version: 4.3.0
+
+servers:
+  - url: http://localhost:4010
+    description: Servidor de Desenvolvimento Local
+  - url: http://localhost:4010
+    description: Servidor de Mock (Prism)
+  - url: https://virtserver.swaggerhub.com/puc-41f/apiJourney/4.3.0
+    description: SwaggerHub API Auto Mocking
+
+tags:
+  - name: API Root
+    description: Ponto de entrada da API.
+  - name: Authentication
+    description: Endpoints para registro e login de usuários.
+  - name: Uploads
+    description: Operações de CRUD para gerenciar arquivos de imagem.
+  - name: Journeys
+    description: Operações de CRUD para Jornadas.
+  - name: Categories
+    description: Operações de CRUD para Categorias de Jornadas.
+  - name: Projects
+    description: Operações de CRUD para Projetos.
+  - name: Partners
+    description: Operações de CRUD para Parceiros.
+  - name: User (Me)
+    description: Operações relacionadas ao usuário autenticado.
+
+paths:
+  /:
+    get:
+      tags: [API Root]
+      summary: Retorna o ponto de entrada e o status da API.
+      description: Fornece metadados da API, status operacional e links para os principais recursos.
+      responses:
+        '200':
+          description: Resposta de boas-vindas com metadados e links dos recursos.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDashboardResponse'
+  
+  # --- AUTENTICAÇÃO ---
+  /auth/register:
+    post:
+      tags: [Authentication]
+      summary: Registra um novo usuário no sistema.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterInput'
+      responses:
+        '201':
+          description: Usuário registrado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: Erro de validação.
+
+  /auth/login:
+    post:
+      tags: [Authentication]
+      summary: Autentica um usuário e retorna um token de acesso.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginInput'
+      responses:
+        '200':
+          description: Login bem-sucedido.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '401':
+          description: Credenciais inválidas.
+
+
+  # --- UPLOAD E GERENCIAMENTO DE IMAGENS ---
+  /uploads/image:
+    post:
+      tags: [Uploads]
+      summary: Realiza o upload de um novo arquivo de imagem.
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: O arquivo de imagem a ser enviado.
+                altText:
+                  type: string
+                  description: "Um texto alternativo para a imagem."
+      responses:
+        '201':
+          description: Upload realizado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageMetadata'
+    get:
+      tags: [Uploads]
+      summary: Lista os metadados de todas as imagens enviadas.
+      responses:
+        '200':
+          description: Lista de metadados de imagens.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImageMetadata'
+
+  /uploads/image/{imageId}:
+    get:
+      tags: [Uploads]
+      summary: Busca os metadados de uma imagem específica.
+      parameters:
+        - name: imageId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Metadados da imagem.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageMetadata'
+        '404':
+          description: Imagem não encontrada.
+    put:
+      tags: [Uploads]
+      summary: Atualiza os metadados de uma imagem.
+      parameters:
+        - name: imageId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [altText]
+              properties:
+                altText:
+                  type: string
+                  description: "Novo texto alternativo para a imagem."
+                  example: "Banner da Jornada de React com o logo da Webtech"
+      responses:
+        '200':
+          description: Metadados atualizados com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageMetadata'
+    delete:
+      tags: [Uploads]
+      summary: Deleta uma imagem do servidor.
+      parameters:
+        - name: imageId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Imagem deletada com sucesso.
+        '404':
+          description: Imagem não encontrada.
+
+  # --- JORNADAS ---
+  /journeys:
+    get:
+      tags: [Journeys]
+      summary: Lista todas as jornadas, com filtro opcional por categoria.
+      parameters:
+        - name: categoryId
+          in: query
+          description: Filtra as jornadas pelo ID da categoria.
+          required: false
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Uma lista de jornadas.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JourneyCard'
+              example:
+                - id: "journey-1"
+                  title: "Front-End"
+                  imageUrl: "/img/corossel1-template.png"
+                  categoryName: "Front-End"
+                - id: "journey-2"
+                  title: "Journey Data-Science"
+                  imageUrl: "/img/corossel1-template.png"
+                  categoryName: "Data-Science"
+                - id: "journey-3"
+                  title: "Journey Data Science"
+                  imageUrl: "/img/corossel1-template.png"
+                  categoryName: "Data-Science"
+                - id: "journey-4"
+                  title: "Journey Front"
+                  imageUrl: "/img/corossel1-template.png"
+                  categoryName: "Front-End"             
+                - id: "journey-5"
+                  title: "Journey Mobile"
+                  imageUrl: "/img/corossel1-template.png"
+                  categoryName: "Mobile"
+                - id: "journey-6"
+                  title: "Journey Back"
+                  imageUrl: "/img/corossel1-template.png"
+                  categoryName: "Back-End"
+  
+                  
+    post:
+      tags: [Journeys]
+      summary: Cria uma nova jornada (Admin).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JourneyInput'
+      responses:
+        '201':
+          description: Jornada criada com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JourneyDetail'
+
+  /journeys/{journeyId}:
+    get:
+      tags: [Journeys]
+      summary: Retorna os detalhes de uma jornada específica.
+      parameters:
+        - name: journeyId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Detalhes da jornada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JourneyDetail'
+
+    put:
+      tags: [Journeys]
+      summary: Atualiza uma jornada existente (Admin).
+      parameters:
+        - name: journeyId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JourneyInput'
+      responses:
+        '200':
+          description: Jornada atualizada com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JourneyDetail'
+    delete:
+      tags: [Journeys]
+      summary: Deleta uma jornada (Admin).
+      parameters:
+        - name: journeyId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Jornada deletada com sucesso.
+  /journeys/{journeyId}/participants:
+    get:
+      tags: [Journeys]
+      summary: Lista os participantes de uma jornada específica.
+      description: Retorna uma lista de todos os usuários inscritos em uma determinada jornada.
+      parameters:
+        - name: journeyId
+          in: path
+          required: true
+          description: O ID da jornada para a qual os participantes serão listados.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Uma lista de participantes da jornada.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participant'
+        '404':
+          description: Jornada não encontrada.
+
+  # --- CATEGORIAS ---
+  /categories:
+    get:
+      tags: [Categories]
+      summary: Lista todas as categorias de jornadas.
+      responses:
+        '200':
+          description: Uma lista de categorias.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+              example:
+                - id: "c4f34a1a-7e1d-4e2b-9e4a-3e1b7f2c8d5a"
+                  name: "Back-End"
+                  description: "Jornadas focadas em desenvolvimento do lado do servidor, APIs e bancos de dados."
+                - id: "f2c9e1b3-6a8d-4f5c-8b7a-1d9e8c7b6a5e"
+                  name: "Front-End"
+                  description: "Jornadas focadas na construção de interfaces de usuário ricas e interativas."
+                - id: "a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d"
+                  name: "Data-Science"
+                  description: "Jornadas focadas em análise, visualização e ciência de dados."
+                - id: "e9f8d7c6-b5a4-3e2d-1c0b-a9b8c7d6e5f4"
+                  name: "Mobile"
+                  description: "Jornadas para desenvolvimento de aplicativos para iOS e Android."
+
+    post:
+      tags: [Categories]
+      summary: Cria uma nova categoria (Admin).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryInput'
+      responses:
+        '201':
+          description: Categoria criada com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+  /categories/{categoryId}:
+    get:
+      tags: [Categories]
+      summary: Retorna os detalhes de uma categoria específica.
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Detalhes da categoria.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    put:
+      tags: [Categories]
+      summary: Atualiza uma categoria existente (Admin).
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CategoryInput'
+      responses:
+        '200':
+          description: Categoria atualizada com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+    delete:
+      tags: [Categories]
+      summary: Deleta uma categoria (Admin).
+      parameters:
+        - name: categoryId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Categoria deletada com sucesso.
+
+  # --- PROJETOS ---
+  /projects:
+    get:
+      tags: [Projects]
+      summary: Lista todos os projetos da Webtech.
+      responses:
+        '200':
+          description: Uma lista de projetos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+              example:
+                - id: "proj-1"
+                  title: "Projeto A"
+                  imageUrl: "/img/corossel1-template.png"
+                  description: "Descrição do Projeto A"
+                - id: "proj-2"
+                  title: "Projeto B"
+                  imageUrl: "/img/corossel1-template.png"
+                  description: "Descrição do Projeto B"
+                - id: "proj-3"
+                  title: "Projeto C"
+                  imageUrl: "/img/corossel1-template.png"
+                  description: "Descrição do Projeto C"
+                - id: "proj-4"
+                  title: "Projeto D"
+                  imageUrl: "/img/corossel1-template.png"
+                  description: "Descrição do Projeto D"
+
+    post:
+      tags: [Projects]
+      summary: Cria um novo projeto (Admin).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectInput'
+      responses:
+        '201':
+          description: Projeto criado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+  /projects/{projectId}:
+    get:
+      tags: [Projects]
+      summary: Retorna os detalhes de um projeto específico.
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Detalhes do projeto.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+    put:
+      tags: [Projects]
+      summary: Atualiza um projeto existente (Admin).
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectInput'
+      responses:
+        '200':
+          description: Projeto atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+    delete:
+      tags: [Projects]
+      summary: Deleta um projeto (Admin).
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Projeto deletado com sucesso.
+
+  # --- PARCEIROS ---
+  /partners:
+    get:
+      tags: [Partners]
+      summary: Lista todos os parceiros.
+      responses:
+        '200':
+          description: Uma lista de parceiros.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Partner'
+              example:
+                - id: "partner-1"
+                  name: "Sydle"
+                  logoUrl: "/img/sydleLogo.png"
+                - id: "partner-2"
+                  name: "DTI"
+                  logoUrl: "/img/dtiLogo.png"
+                - id: "partner-3"
+                  name: "Ioasys"
+                  logoUrl: "/img/IoasysLogo.png"
+                - id: "partner-4"
+                  name: "Way"
+                  logoUrl: "/img/wayLogo.png"
+
+    post:
+      tags: [Partners]
+      summary: Adiciona um novo parceiro (Admin).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerInput'
+      responses:
+        '201':
+          description: Parceiro adicionado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partner'
+  /partners/{partnerId}:
+    get:
+      tags: [Partners]
+      summary: Retorna os detalhes de um parceiro específico.
+      parameters:
+        - name: partnerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Detalhes do parceiro.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partner'
+    put:
+      tags: [Partners]
+      summary: Atualiza um parceiro existente (Admin).
+      parameters:
+        - name: partnerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartnerInput'
+      responses:
+        '200':
+          description: Parceiro atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Partner'
+    delete:
+      tags: [Partners]
+      summary: Deleta um parceiro (Admin).
+      parameters:
+        - name: partnerId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Parceiro deletado com sucesso.
+
+  # --- USUÁRIO AUTENTICADO ---
+  /users/ongoing-journey:
+    get:
+      tags: [User (Me)]
+      summary: Retorna a jornada em andamento do usuário logado.
+      responses:
+        '200':
+          description: Detalhes da jornada em andamento.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OngoingJourney'
+    put:
+      tags: [User (Me)]
+      summary: Atualiza o perfil do usuário autenticado.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: Perfil atualizado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags: [User (Me)]
+      summary: Deleta a conta do usuário autenticado.
+      responses:
+        '204':
+          description: Conta do usuário deletada com sucesso.
+
+
+  /journeys/{journeyId}/subscription:
+    post:
+      tags: [User (Me)]
+      summary: Inscreve o usuário logado em uma jornada.
+      parameters:
+        - name: journeyId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubscriptionInput'
+      responses:
+        '201':
+          description: Inscrição realizada com sucesso.
+    delete:
+      tags: [User (Me)]
+      summary: Cancela a inscrição do usuário logado em uma jornada.
+      parameters:
+        - name: journeyId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Inscrição cancelada com sucesso.
+
+components:
+  schemas:
+    # --- SCHEMA DA ROTA RAIZ ---
+    ApiDashboardResponse:
+      type: object
+      properties:
+        api_name:
+          type: string
+          example: "API da Plataforma de Jornadas Webtech"
+        version:
+          type: string
+          example: "4.3.0"
+        status:
+          type: string
+          example: "online"
+        timestamp:
+          type: string
+          format: date-time
+        documentation_url:
+          type: string
+          format: uri
+          example: "https://virtserver.swaggerhub.com/puc-41f/apiJourney/4.3.0"
+        _links:
+          type: object
+          description: Links para os principais recursos da API.
+          properties:
+            self:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4010/"
+            journeys:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4010/journeys"
+            categories:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4010/categories"
+            projects:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4010/projects"
+            partners:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4010/partners"
+            uploads:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4010/uploads/image"
+            user_profile:
+              type: object
+              properties:
+                href:
+                  type: string
+                  format: uri
+                  example: "http://localhost:4010/users/me"
+    
+    # --- SCHEMAS DE AUTENTICAÇÃO E USUÁRIO ---
+    RegisterInput:
+      type: object
+      required: [name, email, password]
+      properties:
+        name:
+          type: string
+          example: "Novo Usuário"
+        email:
+          type: string
+          format: email
+          example: "usuario@exemplo.com"
+        password:
+          type: string
+          format: password
+          example: "senhaForte123"
+          writeOnly: true
+          
+    LoginInput:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+          writeOnly: true
+
+    AuthResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+        token:
+          type: string
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+
+    UserInput:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Joana da Silva"
+        phone:
+          type: string
+          example: "+5511999998888"
+        education:
+          type: string
+          example: "Ciência da Computação"
+        workField:
+          type: string
+          example: "Desenvolvimento Frontend"
+        avatarUrl:
+          type: string
+          format: uri
+          description: "URL da foto de perfil do usuário."
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        education:
+          type: string
+        workField:
+          type: string
+        avatarUrl:
+          type: string
+          format: uri
+        createdAt:
+          type: string
+          format: date-time
+    
+    SubscriptionInput:
+      type: object
+      properties:
+        schedule:
+          type: string
+          example: "Noite"
+        knowledgeLevel:
+          type: string
+          enum: [Iniciante, Intermediario, Avancado]
+        termsAccepted:
+          type: boolean
+
+    # --- SCHEMAS DE UPLOAD ---
+    ImageMetadata:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        url:
+          type: string
+          format: uri
+        altText:
+          type: string
+        originalFilename:
+          type: string
+        mimeType:
+          type: string
+        fileSize:
+          type: integer
+          format: int64
+        uploadedAt:
+          type: string
+          format: date-time
+
+    # --- SCHEMAS DAS ENTIDADES PRINCIPAIS ---
+    JourneyInput:
+      type: object
+      required: [title, categoryId]
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        provider:
+          type: string
+        level:
+          type: string
+          enum: [Iniciante, Intermediario, Avancado]
+        totalSteps:
+          type: integer
+        imageUrl:
+          type: string
+          format: uri
+        categoryId:
+          type: string
+          format: uuid
+        
+    ProjectInput:
+      type: object
+      required: [title]
+      properties:
+        title:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+        description:
+          type: string
+
+    PartnerInput:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        logoUrl:
+          type: string
+          format: uri
+
+    CategoryInput:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          
+    # --- SCHEMAS DE RESPOSTA (OUTPUTS) ---
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+
+    Participant:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: "O ID único do usuário."
+        name:
+          type: string
+          example: "Pessoa da Silva"
+        avatarUrl:
+          type: string
+          format: uri
+          example: "http://localhost:4010/assets/img/menu_fig.png"
+        role:
+          type: string
+          example: "Aluno"
+          description: "A função do participante na jornada (ex: Aluno, Mentor)."
+        group:
+          type: string
+          example: "Grupo 2"
+        currentStep:
+          type: integer
+          example: 5
+          description: "O número da etapa atual do participante na jornada."
+        
+    JourneyDetail:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+        provider:
+          type: string
+        level:
+          type: string
+          enum: [Iniciante, Intermediario, Avancado]
+        imageUrl:
+          type: string
+          format: uri
+        createdAt:
+          type: string
+          format: date-time
+        category:
+          $ref: '#/components/schemas/Category'
+
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+        description:
+          type: string
+              
+    Partner:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        logoUrl:
+          type: string
+          format: uri
+    
+    JourneyCard:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        imageUrl:
+          type: string
+          format: uri
+        categoryName:
+          type: string
+          
+    OngoingJourney:
+      type: object
+      properties:
+        journeyId:
+          type: string
+          format: uuid
+        title:
+          type: string
+        progress:
+          type: integer

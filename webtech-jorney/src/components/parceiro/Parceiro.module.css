@@ -1,0 +1,19 @@
+.parceiro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* <-- Adicione esta linha */
+  gap: 10px;
+  font-weight: 600;
+
+}
+
+.imagemParceiro {
+  width: 100px;
+}
+
+.outline {
+  outline: 3px solid #332264;
+  border-radius: 100px;
+}
